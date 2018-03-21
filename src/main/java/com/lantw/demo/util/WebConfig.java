@@ -1,20 +1,22 @@
 package com.lantw.demo.util;
 
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
-import org.springframework.boot.web.servlet.ServletRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
+import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
 
 @Configuration
-public class WebConfig {
+public class WebConfig extends WebMvcConfigurerAdapter{
 
 	
-    @Bean
+
+	@Bean
     public HttpMessageConverters fastJsonHttpMessageConverters() {
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
 
@@ -25,8 +27,17 @@ public class WebConfig {
         
         HttpMessageConverter<?> converter = fastJsonHttpMessageConverter;
 
-		System.out.println("converter 注册>>>>>>>>>>>>>>>>>>>");
+		System.out.println("初始化 FastJson>>>>>>>>>>>>");
         return new HttpMessageConverters(converter);
+
+    }
+	
+	 @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+
+        registry.addInterceptor(new TestInterceptor()).addPathPatterns("/**");
+
+        super.addInterceptors(registry);
 
     }
     
