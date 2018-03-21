@@ -13,7 +13,8 @@ public class TestCotroller {
 	@Autowired
 	private UserService userService;
 	@GetMapping("/")
-    public User home() {
+    public Object home() {
+//		return "241412";
 		return userService.selectByPrimaryKey(1l);
     }
 }

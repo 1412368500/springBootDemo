@@ -1,11 +1,18 @@
 package com.lantw.demo.model;
 
+import java.util.Date;
+
+import com.alibaba.fastjson.annotation.JSONField;
+
 public class User {
     private Long id;
 
     private String name;
 
     private String password;
+
+    @JSONField(format="yyyy-MM-dd HH:mm:ss")
+    private Date birthday;
 
     public Long getId() {
         return id;
@@ -29,5 +36,13 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password == null ? null : password.trim();
+    }
+
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
     }
 }
