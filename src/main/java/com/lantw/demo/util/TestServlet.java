@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 //注解实现
-@WebServlet(urlPatterns = "/test", description = "微信接口验证")
+@WebServlet(urlPatterns = "/test", description = "servlet test 验证")
 public class TestServlet extends HttpServlet {
 
 	/**
