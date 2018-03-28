@@ -1,4 +1,4 @@
-package com.lanntw.demo;
+package com.lantw.demo;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
