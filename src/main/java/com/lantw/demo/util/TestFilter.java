@@ -11,12 +11,17 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 @WebFilter
 public class TestFilter implements Filter {
 
+	private final Logger logger = LoggerFactory.getLogger(TestFilter.class);
+	
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-	    System.out.println("TestFilter>>>>>>>>>>>>初始化过滤器>>>>>>>>>>>>");
+		logger.info("TestFilter>>>>>>>>>>>>初始化过滤器>>>>>>>>>>>>");
 	}
 	
 	@Override
@@ -25,14 +30,14 @@ public class TestFilter implements Filter {
 	
 	    long start = System.currentTimeMillis();
 	    HttpServletRequest httpRequest = (HttpServletRequest) request;
-	    System.out.println("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>进来了>>>>>>>>>>>>");
+	    logger.info("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>进来了>>>>>>>>>>>>");
 	    filterChain.doFilter(request, response);
-	    System.out.println("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>耗时：" + (System.currentTimeMillis() - start));
+	    logger.info("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>耗时：" + (System.currentTimeMillis() - start));
 	
 	}
 	
 	@Override
 	public void destroy() {
-	    System.out.println("TestFilter>>>>>>>>>>>>销毁过滤器>>>>>>>>>>>>");
+		logger.info("TestFilter>>>>>>>>>>>>销毁过滤器>>>>>>>>>>>>");
 	}
 }
