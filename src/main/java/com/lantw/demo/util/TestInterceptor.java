@@ -12,7 +12,7 @@ public class TestInterceptor implements HandlerInterceptor {
 	@Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
         
-        System.out.println("========preHandle=========" + ((HandlerMethod)handler).getBean().getClass().getName() + "==" + ((HandlerMethod)handler).getMethod().getName());
+        System.out.println("TestInterceptor>>>>>>>>>>>>preHandle>>>>>>>>>>>>" + ((HandlerMethod)handler).getBean().getClass().getName() + "==" + ((HandlerMethod)handler).getMethod().getName());
         request.setAttribute("startTime", System.currentTimeMillis());
         return true;
     }
@@ -22,7 +22,7 @@ public class TestInterceptor implements HandlerInterceptor {
             throws Exception {
 
         Long start = (Long) request.getAttribute("startTime");
-        System.out.println("========postHandle=========请求耗时:"+(System.currentTimeMillis() - start));
+        System.out.println("TestInterceptor>>>>>>>>>>>>postHandle>>>>>>>>>>>>请求耗时:"+(System.currentTimeMillis() - start));
     }
 
     @Override
@@ -30,6 +30,6 @@ public class TestInterceptor implements HandlerInterceptor {
             throws Exception {
 
         Long start = (Long) request.getAttribute("startTime");
-        System.out.println("========afterCompletion=========耗时:"+(System.currentTimeMillis() - start) + "==" + exception);
+        System.out.println("TestInterceptor>>>>>>>>>>>>afterCompletion>>>>>>>>>>>>耗时:"+(System.currentTimeMillis() - start) + "==" + exception);
     }
 }

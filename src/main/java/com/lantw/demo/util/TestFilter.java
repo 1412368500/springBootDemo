@@ -16,7 +16,7 @@ public class TestFilter implements Filter {
 
 	@Override
 	public void init(FilterConfig filterConfig) throws ServletException {
-	    System.out.println("初始化过滤器TestFilter>>>>>>>>>>>>");
+	    System.out.println("TestFilter>>>>>>>>>>>>初始化过滤器>>>>>>>>>>>>");
 	}
 	
 	@Override
@@ -24,15 +24,15 @@ public class TestFilter implements Filter {
 	        throws IOException, ServletException {
 	
 	    long start = System.currentTimeMillis();
-	
-	    filterChain.doFilter(request, response);
 	    HttpServletRequest httpRequest = (HttpServletRequest) request;
-	    System.out.println(httpRequest.getRequestURL() + "耗时：" + (System.currentTimeMillis() - start));
+	    System.out.println("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>进来了>>>>>>>>>>>>");
+	    filterChain.doFilter(request, response);
+	    System.out.println("TestFilter>>>>>>>>>>>>" + httpRequest.getRequestURL() + ">>>>>>>>>>>>耗时：" + (System.currentTimeMillis() - start));
 	
 	}
 	
 	@Override
 	public void destroy() {
-	    System.out.println("=======销毁过滤器=========");
+	    System.out.println("TestFilter>>>>>>>>>>>>销毁过滤器>>>>>>>>>>>>");
 	}
 }
