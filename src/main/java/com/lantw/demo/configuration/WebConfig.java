@@ -1,5 +1,6 @@
-package com.lantw.demo.util;
+package com.lantw.demo.configuration;
 
+import com.lantw.demo.interceptor.TestInterceptor;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
