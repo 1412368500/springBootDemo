@@ -2,8 +2,6 @@ package com.lantw.demo.model;
 
 import java.util.Date;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 public class User {
     private Long id;
 
@@ -11,8 +9,17 @@ public class User {
 
     private String password;
 
-    @JSONField(format="yyyy-MM-dd HH:mm:ss")
     private Date birthday;
+
+    private String ident;
+
+    private String sex;
+
+    private Integer age;
+
+    private Date createTime;
+
+    private Date updateTime;
 
     public Long getId() {
         return id;
@@ -44,5 +51,45 @@ public class User {
 
     public void setBirthday(Date birthday) {
         this.birthday = birthday;
+    }
+
+    public String getIdent() {
+        return ident;
+    }
+
+    public void setIdent(String ident) {
+        this.ident = ident == null ? null : ident.trim();
+    }
+
+    public String getSex() {
+        return sex;
+    }
+
+    public void setSex(String sex) {
+        this.sex = sex == null ? null : sex.trim();
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Date updateTime) {
+        this.updateTime = updateTime;
     }
 }
