@@ -16,9 +16,12 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 所有程序接口的入口
+ */
 @RestController
-@Api(value=" 用户数据操作接口Controller")
-public class TestCotroller {
+@Api(value="用户数据操作接口Controller")
+public class TestController {
 	
 	@Autowired
 	private UserService userService;
